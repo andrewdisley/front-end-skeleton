@@ -1,0 +1,6 @@
+---
+layout: nil
+# http://www.sitemaps.org/protocol.php#submit_robots
+---
+User-agent: *
+Sitemap: {{ site.url }}sitemap.xml

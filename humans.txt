@@ -1,0 +1,18 @@
+---
+layout: nil
+---
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+  Developer: {{ site.author }}
+  Site: {{ site.author_url }}
+  Twitter: {{ site.author_twitter }}
+  Location: Manchester, UK
+
+/* SITE */
+  Last update: {{ 'now' | date: "%Y-%m-%d %H:%M" }}
+  Standards: HTML5, CSS3
+  Components: HTML5 Boilerplate, Modernizr, jQuery
+  Software: Jekyll
+  IDE: TextMate
