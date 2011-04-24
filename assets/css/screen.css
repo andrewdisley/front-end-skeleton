@@ -67,7 +67,6 @@ button {  width: auto; overflow: visible; }
 /** Front-end Skeleton Helpers
 ------------------------------------------------------------*/
 .s-i-i { background-color: transparent; background-position: 0 0; background-repeat: no-repeat; display: block; position: absolute; }
-.ie7 img { -ms-interpolation-mode: bicubic; }
 .s-h { display: block; height: 0; float: left; overflow: hidden; width: 0; }
 .s-h-o { left: -9999em; position: absolute; top: -9999em; }
 .s-h-n { display: none; visibility: hidden; }
