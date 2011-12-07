@@ -1,5 +1,0 @@
-/img/g/XXXX.png
-php -r "echo base64_encode(file_get_contents('XXXX.png'));"
---------------------
-background-image: url("data:image/png;base64,");
-------------------------------------------------------------------------------------------
