@@ -1,0 +1,21 @@
+# https://github.com/mojombo/jekyll/wiki/Configuration
+permalink: /:categories/:title
+destination: ./_deploy
+exclude: ['Rakefile', 'README.md', 'TODO.md']
+
+# Environment Settings
+debug: false
+env: prd
+
+# Author
+author: "Andrew Disley"
+author_url: "http://simplified.co.uk/"
+author_twitter: andrewdisley
+author_twitter_url: http://twitter.com/andrewdisley
+
+# Title | Nname (used for compressed js) | ID (used on <body> element) | Domain | Google Analytics ID
+title: "Front-end Skeleton"
+name: "frontendskeleton"
+id: frontendskeleton
+domain: frontendskeleton.co.uk
+google_analytics_id: UA-XXXXX-XX

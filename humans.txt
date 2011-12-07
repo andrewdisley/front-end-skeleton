@@ -1,9 +1,7 @@
 ---
 layout: nil
+# http://humanstxt.org/
 ---
-/* the humans responsible & colophon */
-/* humanstxt.org */
-
 /* TEAM */
   Developer: {{ site.author }}
   Site: {{ site.author_url }}
@@ -11,7 +9,7 @@ layout: nil
   Location: Manchester, UK
 
 /* SITE */
-  Last update: {{ 'now' | date: "%Y-%m-%d %H:%M" }}
+  Last update: {{ site.time | date: "%Y-%m-%d %H:%M" }}
   Standards: HTML5, CSS3
   Components: HTML5 Boilerplate, Modernizr, jQuery
   Software: Jekyll

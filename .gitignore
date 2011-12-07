@@ -2,3 +2,5 @@ tmp/*
 .DS_Store
 .svn
 _site
+_deploy
+_config.yml

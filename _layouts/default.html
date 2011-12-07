@@ -1,0 +1,50 @@
+<!doctype html>
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% if page.title %}{{ page.title }}{% else %}{% endif %}</title>{% if page.meta_description %}
+<meta name="description" content="{{ page.meta_description }}">{% endif %}{% if page.meta_keywords %}
+<meta name="keywords" content="{{ page.meta_keywords }}">{% endif %}
+<!--[if gte IE 7]><!-->
+<link rel="stylesheet" href="/css/style.css">
+<script src="/js/libs/modernizr.js"></script>
+<!--<![endif]-->
+</head>
+<body{% if page.section %} class="{{ page.section }}"{% endif %} id="{{ site.id }}">
+<div id="Container">
+<header id="Header" role="banner">
+<h1>{{ site.title }}</h1>
+<nav role="navigation">
+<h2 class="vh">Site Navigation</h2>
+<ul>
+<li class="{% if page.section contains 'home' %} active{% endif %}"><a href="/">Home</a></li>
+</ul>
+</nav>
+</header>
+<div id="Content" role="main">
+{{ content }}
+</div>
+<footer id="Footer" role="contentinfo">
+<p>Copyright &#169; {{ site.time | date: "%Y" }} <a href="http://{{ site.domain }}/">{{ site.title }}</a></p>
+</footer>
+</div>
+<!--[if gte IE 7]><!-->{% if site.env == 'dev' %}
+<script src="/js/libs/jquery-1.7.1.min.js"></script>
+<script src="/js/plugins.js"></script>
+<script src="/js/script.js"></script>
+{% else if site.env == 'stg' OR site.env == 'prd' %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+<script src="/js/fes.js"></script>
+{% endif %}<!--<![endif]-->{% if site.env == 'prd' %}
+<script>
+var _gaq=[['_setAccount','{{ site.google_analytics_id }}'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>{% endif %}
+</body>
+</html>
