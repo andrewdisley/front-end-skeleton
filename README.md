@@ -36,8 +36,8 @@ Example using `site.env` to include development javascript in when `env: dev`:
 ### `grunt`
 Build using `_config.yml` destination `_deploy`.
 
-### `rake deploy` (currently only works on Mac)
-Build a **production release `_deploy.zip`** using `_config.yml` temporary destination `_deploy`. Scripts (`/js/shortname.plugins.js` and `/js/shortname.js`) are concatenated to `/js/shortname.js` this along with `/css/shortname.css`.
+### `rake deploy`
+Build a **production release `_deploy.zip`** using `_config.yml` temporary destination `_deploy`.
 
 ### `grunt dev`
 Build using `_config.yml` destination `_site` and run server on [localhost:8080](http://localhost:8080/) with auto-regeneration.
