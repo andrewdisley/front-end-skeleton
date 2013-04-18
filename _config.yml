@@ -1,0 +1,20 @@
+# https://github.com/mojombo/jekyll/wiki/Configuration
+permalink: /:categories/:title
+destination: ./_deploy
+exclude: ['.htaccess', 'Gruntfile.js', 'node_modules', 'package.json', 'Rakefile', 'README.md', 'TODO.md']
+
+# Shortname (used for generated CSS and JS filenames)
+shortname: false
+
+# Mobile (set to true to include mobile specific <head> elements)
+mobile: false
+
+# Author
+author: "Andrew Disley"
+author_url: "http://simplified.co.uk/"
+author_twitter: andrewdisley
+author_twitter_url: http://twitter.com/andrewdisley
+
+# Environment Settings
+debug: false
+env: dev

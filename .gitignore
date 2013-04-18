@@ -3,5 +3,4 @@ tmp/*
 .svn
 _site
 _deploy
-_config.yml
 /node_modules/
