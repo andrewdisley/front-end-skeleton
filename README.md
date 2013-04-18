@@ -3,12 +3,12 @@ A Grunt, Jekyll and Livereload powered starting point I use for front-end develo
 
 ## Install
 Run `npm install` to download dependencies then use the Grunt Tasks mentioned below.
+Edit `package.json` and `_config.yml` where you see Author and Shortname variables
 
 ## Grunt Config
 package.json is used to define the Grunt configuration:
 
-**Shortname**: `fes` # Used to name JS and CSS  
-**Assets Path**: `path_assets: /`
+**Shortname**: `fes` # Used to name JS and CSS
 
 ## Jekyll Config
 _config.yml is used to define the Jekyll configuration:
@@ -36,7 +36,7 @@ Example using `site.env` to include development javascript in when `env: dev`:
 ### `grunt`
 Build using `_config.yml` destination `_deploy`.
 
-### `rake deploy`
+### `grunt deploy`
 Build a **production release `_deploy.zip`** using `_config.yml` temporary destination `_deploy`.
 
 ### `grunt dev`
