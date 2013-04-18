@@ -1,9 +1,9 @@
 # Front-end Skeleton
-A Grunt, Jekyll and Livereload powered starting point I use for front-end development.
+A Grunt, Jekyll and LiveReload powered starting point I use for front-end development.
 
 ## Install
-Run `npm install` to download dependencies then use the Grunt Tasks mentioned below.
-Edit `package.json` and `_config.yml` where you see Author and Shortname variables
+Run `npm install` to download dependencies then use the Grunt Tasks mentioned below. 
+Edit `package.json` and `_config.yml` where you see Author and Shortname variables.
 
 ## Grunt Config
 package.json is used to define the Grunt configuration:
