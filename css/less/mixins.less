@@ -1,0 +1,77 @@
+// Font sizing in REMs
+.font-size(@size: @baseFontSizePX) {
+  @rem: (@size / @baseFontSizePX);
+  font-size: @size * 1px;
+  font-size: ~"@{rem}rem";
+}
+
+// line-height in REMs
+.line-height(@size: @baseFontSizePX) {
+  @rem: (@size / @baseFontSizePX);
+  line-height: @size * 1px;
+  line-height: ~"@{rem}rem";
+}
+
+// Clearfix
+.cf() {
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+    content: " ";
+    display: table;
+  }
+  .lt-ie8 & {
+    *zoom: 1;
+  }
+}
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+.hidden() {
+  display: none !important;
+  visibility: hidden;
+}
+
+// h5bp.com/v
+.vh() {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// Extends the .vh to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p
+// h5bp.com/p
+.vhf() {
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+// Image replacement
+.ir() {
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+  .lt-ie8 & {
+    text-indent: -9999px;
+  }
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+  }
+}

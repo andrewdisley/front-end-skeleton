@@ -1,23 +1,30 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>{% if page.title %}{{ page.title }}{% else %}{% endif %}</title>{% if page.meta_description %}
+<meta charset="utf-8">{% if site.mobile %}
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">{% endif %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }}</title>{% if page.meta_description %}
 <meta name="description" content="{{ page.meta_description }}">{% endif %}{% if page.meta_keywords %}
-<meta name="keywords" content="{{ page.meta_keywords }}">{% endif %}
-<!--[if gte IE 7]><!-->
-<link rel="stylesheet" href="/css/style.css">
-<script src="/js/libs/modernizr-2.5.3.min.js"></script>
+<meta name="keywords" content="{{ page.meta_keywords }}">{% endif %}{% if site.mobile %}
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png">
+<meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
+<meta name="msapplication-TileColor" content="#404040">{% endif %}
+<!--[if gte IE 8]><!-->
+<link rel="stylesheet" href="{{ site.path_assets }}css/{{ site.shortname }}.css">{% if site.env == 'dev' %}
+<script src="{{ site.path_assets }}js/libs/modernizr-latest.js"></script>{% else %}
+<script src="{{ site.path_assets }}js/libs/modernizr.js"></script>{% endif %}
 <!--<![endif]-->
 </head>
-<body{% if page.section %} class="{{ page.section }}"{% endif %} id="{{ site.id }}">
-<div id="Container">
-<header id="Header" role="banner">
-<h1>{{ site.title }}</h1>
+<body{% if page.section %} class="{{ page.section }}"{% endif %}>
+<div class="lw">
+<header class="lh" role="banner">
+<h1>Site Title</h1>
 <nav role="navigation">
 <h2 class="vh">Site Navigation</h2>
 <ul>
@@ -25,27 +32,24 @@
 </ul>
 </nav>
 </header>
-<div id="Page" role="main">
+<div class="lc" role="main">
 {{ content }}
 </div>
-<footer id="Footer" role="contentinfo">
-<p>Copyright &#169; {{ site.time | date: "%Y" }} <a href="http://{{ site.domain }}/">{{ site.title }}</a></p>
+<footer class="lf" role="contentinfo">
+<p>Copyright &#169; {{ site.time | date: "%Y" }} </p>
 </footer>
 </div>
-<!--[if gte IE 7]><!-->{% if site.env == 'dev' %}
-<script src="/js/libs/jquery-1.7.1.min.js"></script>
-<script src="/js/plugins.js"></script>
-<script src="/js/script.js"></script>
+<!--[if gte IE 8]><!-->{% if site.env == 'dev' %}
+<script src="{{ site.path_assets }}js/libs/jquery-1.9.1.js"></script>
+<script src="{{ site.path_assets }}js/{{ site.shortname }}.plugins.js"></script>
+<script src="{{ site.path_assets }}js/{{ site.shortname }}.js"></script>
 {% else if site.env == 'stg' OR site.env == 'prd' %}
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-<script src="/js/fes.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{{ site.path_assets }}js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="{{ site.path_assets }}js/{{ site.shortname }}.plugins.js"></script>
+<script src="{{ site.path_assets }}js/{{ site.shortname }}.js"></script>
 {% endif %}<!--<![endif]-->{% if site.env == 'prd' %}
-<script>
-var _gaq=[['_setAccount','{{ site.google_analytics_id }}'],['_trackPageview']];
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>{% endif %}
+{% include tracking.html %}
+{% endif %}
 </body>
 </html>

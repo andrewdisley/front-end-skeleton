@@ -1,0 +1,107 @@
+// global.less
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+img { height: auto; max-width: 100%; vertical-align: middle; -ms-interpolation-mode: bicubic; }
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+html,
+button,
+input,
+select,
+textarea {
+  color: @baseFontColor;
+}
+hr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  display: block;
+  height: 1px
+  margin: 1em 0;
+  padding: 0;
+}
+textarea {
+  resize: vertical;
+}
+html { font-size: @baseFontSize; }
+body {
+  background-color: #FFF;
+  color: @baseFontColor;
+  font-family: @baseFontFamily;
+  .font-size(18);
+  .line-height(24);
+}
+a {
+  color: @baseAnchorColor;
+  text-decoration: none;
+}
+a:visited {
+  color: @baseAnchorVisitedColor;
+}
+a:hover {
+  color: @baseAnchorHoverColor;
+  text-decoration: underline;
+}
+h1 {
+  .font-size(23);
+  margin: 0 0 1em 0;
+}
+h2 {
+  margin: 0 0 1em 0;
+}
+h3 {
+  .font-size(18);
+  .line-height(20);
+  margin: 0 0 0.5em 0;
+}
+p {
+  margin: 0 0 1.5em;
+}
+ul {
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+// Layout
+.i { margin: 0 auto; }
+.lw {
+  // Layout wrapper
+}
+.lh {
+  // Layout header
+  h1 { margin: 0; }
+}
+.lc {
+  // Layout content
+}
+.lf {
+  // Layout footer
+  clear: both;
+}
+
+// Mobile first styles
+
+
+// Imports for media queries
+@media (min-width: 40em) {
+  @import "tablet.less";
+}
+@media (min-width: 62em) {
+  @import "desktop.less";
+}
+
+// For IE < 9
+// Forces fixed layout
+// If stylesheet is large move this to ltie9.css and use conditional comment
+.lt-ie9 {
+  @import "tablet.less";
+  @import "desktop.less";
+  // Overwrites for IE8 and below
+  // Overwrites for IE7 and below prefix with *
+  // Overwrites for IE6 prefix with _
+}

@@ -10,7 +10,5 @@ layout: nil
 
 /* SITE */
   Last update: {{ site.time | date: "%Y-%m-%d %H:%M" }}
-  Standards: HTML5, CSS3
-  Components: HTML5 Boilerplate, Modernizr, jQuery
-  Software: Jekyll
-  IDE: TextMate
+  Thanks: HTML5, CSS3, Grunt, Jekyll, Normalize, HTML5 Boilerplate, Modernizr, jQuery
+  IDE: Sublime Text
