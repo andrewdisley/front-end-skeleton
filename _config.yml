@@ -1,10 +1,10 @@
 # https://github.com/mojombo/jekyll/wiki/Configuration
 permalink: /:categories/:title
-destination: ./_deploy
+destination: ./_site
 exclude: ['.htaccess', 'Gruntfile.js', 'node_modules', 'package.json', 'Rakefile', 'README.md', 'TODO.md']
 
 # Shortname (used for generated CSS and JS filenames)
-shortname: false
+shortname: fes
 
 # Mobile (set to true to include mobile specific <head> elements)
 mobile: false
