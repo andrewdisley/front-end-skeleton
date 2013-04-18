@@ -1,21 +1,24 @@
 # Front-end Skeleton
 A Grunt, Jekyll and Livereload powered starting point I use for front-end development.
 
+## Install
+Run `npm install` to download dependencies then use the Grunt Tasks mentioned below.
+
 ## Grunt Config
 package.json is used to define the Grunt configuration:
 
-**Shortname**: `fes` # Used to name JS and CSS
-**Assets Path**: `path_assets: \`
+**Shortname**: `fes` # Used to name JS and CSS  
+**Assets Path**: `path_assets: /`
 
 ## Jekyll Config
 _config.yml is used to define the Jekyll configuration:
 
-**Shortname**: `shortname: fes` # Used to name JS and CSS
-**Assets Path**: `path_assets: \`
-**Mobile**: `mobile: true` # Used to name JS and CSS
-**Development**: `env: dev`
-**Staging**: `env: stg`
-**Production**: `env: prd`
+**Shortname**: `shortname: fes` # Used to name JS and CSS  
+**Assets Path**: `path_assets: /`  
+**Mobile**: `mobile: true` # Used to name JS and CSS  
+**Development**: `env: dev`  
+**Staging**: `env: stg`  
+**Production**: `env: prd`  
 **Debug**: `debug: false|true` # Default is false
 
 The env and debug settings are available in files processed by Jekyll using `site.env` and `site.debug`, this allows the targeting functionality at a specific environment.
