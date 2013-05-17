@@ -23,7 +23,11 @@ module.exports = function(grunt) {
       main: {
         src: [ '<%= pkg.path_assets %>js/main.js' ],
         dest: '<%= pkg.path_assets %>js/<%= pkg.shortname %>.js'
-      }
+      },
+      deploy: {
+        src: [ '<%= pkg.path_assets %>js/<%= pkg.shortname %>.plugins.js', '<%= pkg.path_assets %>js/<%= pkg.shortname %>.js' ],
+        dest: '<%= pkg.path_assets %>js/<%= pkg.shortname %>.js'
+      },
     },
 
     less: {
@@ -137,6 +141,18 @@ module.exports = function(grunt) {
       }
     },
 
+    shell: {
+      staging: {
+        command: 'rsync -rtzhv _deploy/ vpsX:/home/andrewdisley/sites/domain/public/'
+      },
+      assets: {
+        command: [
+          'cp -f _deploy/js/<%= pkg.shortname %>.js ../Dev/public/js/<%= pkg.shortname %>.js',
+          'cp -f _deploy/css/<%= pkg.shortname %>.css ../Dev/public/css/<%= pkg.shortname %>.css'
+        ].join('&&')
+      }
+    },
+
     compress: {
       prd: {
         options: {
@@ -160,11 +176,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-livereload');
+  grunt.loadNpmTasks('grunt-shell');
 
   // Tasks
-  grunt.registerTask('default', ['clean:pre_prd', 'less:prd', 'concat', 'jekyll:prd', 'clean:post_prd']);
+  grunt.registerTask('default', ['clean:pre_prd', 'less:prd', 'concat:plugins', 'concat:main', 'jekyll:prd', 'clean:post_prd']);
+  grunt.registerTask('staging', ['clean:pre_prd', 'less:prd', 'concat', 'jekyll:prd', 'clean:post_prd', 'shell:staging']);
   grunt.registerTask('deploy', ['clean:pre_prd', 'less:prd', 'concat', 'jekyll:prd', 'clean:post_prd', 'compress:prd']);
-  grunt.registerTask('dev_build', ['clean:pre_dev', 'less:dev', 'concat', 'jekyll:dev', 'clean:post_dev']);
+  grunt.registerTask('dev_build', ['clean:pre_dev', 'less:dev', 'concat:plugins', 'concat:main', 'jekyll:dev', 'clean:post_dev']);
   grunt.registerTask('dev', ['livereload-start', 'dev_build', 'connect', 'regarde']);
+  grunt.registerTask('assets', ['clean:pre_prd', 'less:prd', 'concat', 'jekyll:prd', 'clean:post_prd', 'shell:assets']);
 
 };
