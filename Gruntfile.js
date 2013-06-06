@@ -1,10 +1,4 @@
 'use strict';
-var path = require('path');
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-
-var folderMount = function folderMount(connect, point) {
-  return connect.static(path.resolve(point));
-};
 
 module.exports = function(grunt) {
 
@@ -98,14 +92,15 @@ module.exports = function(grunt) {
       ]
     },
 
-    regarde: {
+    watch: {
       css: {
         files: [
           '<%= pkg.path_assets %>css/**/*.less',
         ],
-        tasks: ['less:dev', 'copy:css_livereload', 'livereload'],
+        tasks: ['less:dev', 'copy:css_livereload'],
         options: {
-          interrupt: true
+          livereload: true,
+          nospawn: true
         }
       },
       jekyll: {
@@ -121,8 +116,9 @@ module.exports = function(grunt) {
           '!_site/img/*.*',
           'Gruntfile.js'
         ],
-        tasks: ['dev_build', 'livereload'],
+        tasks: ['dev_build'],
         options: {
+          livereload: true,
           interrupt: true
         }
       }
@@ -133,10 +129,7 @@ module.exports = function(grunt) {
         options: {
           hostname: null,
           port: 8080,
-          base: '_site',
-          middleware: function(connect, options) {
-            return [lrSnippet, folderMount(connect, options.base)]
-          }
+          base: '_site'
         }
       }
     },
@@ -167,7 +160,7 @@ module.exports = function(grunt) {
   });
 
   // Plugins
-  grunt.loadNpmTasks('grunt-regarde');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-less');
@@ -175,7 +168,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-contrib-livereload');
   grunt.loadNpmTasks('grunt-shell');
 
   // Tasks
@@ -183,7 +175,7 @@ module.exports = function(grunt) {
   grunt.registerTask('staging', ['clean:pre_prd', 'less:prd', 'concat', 'jekyll:prd', 'clean:post_prd', 'shell:staging']);
   grunt.registerTask('deploy', ['clean:pre_prd', 'less:prd', 'concat', 'jekyll:prd', 'clean:post_prd', 'compress:prd']);
   grunt.registerTask('dev_build', ['clean:pre_dev', 'less:dev', 'concat:plugins', 'concat:main', 'jekyll:dev', 'clean:post_dev']);
-  grunt.registerTask('dev', ['livereload-start', 'dev_build', 'connect', 'regarde']);
+  grunt.registerTask('dev', ['dev_build', 'connect', 'watch']);
   grunt.registerTask('assets', ['clean:pre_prd', 'less:prd', 'concat', 'jekyll:prd', 'clean:post_prd', 'shell:assets']);
 
 };
